@@ -4,6 +4,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 
+// Load the full build. (lodash)
+const _ = require('lodash');
+const { xor } = require("lodash");
+
 const homeStartingContent =
   "Lacus vel facilisis volutpat est velit egestas dui id ornare. Semper auctor neque vitae tempus quam. Sit amet cursus sit amet dictum sit amet justo. Viverra tellus in hac habitasse. Imperdiet proin fermentum leo vel orci porta. Donec ultrices tincidunt arcu non sodales neque sodales ut. Mattis molestie a iaculis at erat pellentesque adipiscing. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Odio euismod lacinia at quis risus sed vulputate odio ut. Cursus mattis molestie a iaculis at erat pellentesque adipiscing.";
 const aboutContent =
@@ -40,6 +44,23 @@ app.post("/compose", function (req, res) {
   const post = {title : req.body.postTitle, body : req.body.postBody};
   posts.push(post);
 
+  res.redirect("/");
+});
+
+// uses dynamic url
+app.get("/posts/:postTitle", function(req, res) {
+  const postTitle = req.params.postTitle;
+  console.log(postTitle);
+  posts.forEach(post => {
+    if (_.lowerCase(post.title)===_.lowerCase(postTitle)) {
+      console.log("Match Found!!");
+      res.render("post", {title: post.title, content: post.body});
+    }
+  });
+});
+
+
+app.get("/home", function(req, res) {
   res.redirect("/");
 });
 
