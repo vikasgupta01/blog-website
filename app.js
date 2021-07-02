@@ -41,7 +41,7 @@ app.get("/compose", function (req, res) {
 });
 
 app.post("/compose", function (req, res) {
-  const post = {title : req.body.postTitle, body : req.body.postBody};
+  const post = {title : req.body.postTitle, body : req.body.postBody, route : _.kebabCase(req.body.postTitle)};
   posts.push(post);
 
   res.redirect("/");
@@ -53,7 +53,6 @@ app.get("/posts/:postTitle", function(req, res) {
   console.log(postTitle);
   posts.forEach(post => {
     if (_.lowerCase(post.title)===_.lowerCase(postTitle)) {
-      console.log("Match Found!!");
       res.render("post", {title: post.title, content: post.body});
     }
   });
