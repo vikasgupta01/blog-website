@@ -8,8 +8,8 @@
 
 
 <% posts.forEach(post => { %>
-<h1> <%= post.title %> </h1>
-<p> <%= post.body.substring(0, 100) + " ..." %> <a href="/posts/<%= post.route %>">Read More</a> </p>
+<h3> <%= post.title %> </h3>
+<p> <%= post.body.substring(0, 100) + " ..." %> <a href="/posts/<%= post._id %>">Read More</a> </p>
 <%  }) %>
 
 <%- include("partials/footer") -%>
