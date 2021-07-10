@@ -2,9 +2,14 @@
 
 This is a blog sharing website having option of creating posts from compose, getting a glance of it's content and heading from home page, and viewing them individually through dynamically rendered ejs pages for each blog.
 
-It's an ongoing project and currently it uses node.js with express, ejs and lodash.
+Libraries/Frameworks/Tools used : 
+1. Node.js-Express.js, Lodash in backend
+2. MongoDB-atlas & Mongoose for data persistence.
+3. EJS for views
 
-It stores the blog data in array for now, but I'm planning to give it database connectivity as well; so that we would be able to preserve the blog data post session.
+Deployment : https://blog-website-vikas.herokuapp.com/
+
+Pictures : 
 
 ![home-page](https://user-images.githubusercontent.com/52257916/124293513-60b38880-db74-11eb-8f86-1820a5cb2eb8.png)
 ![compose-page](https://user-images.githubusercontent.com/52257916/124293544-67420000-db74-11eb-9fad-5e781b83867e.png)
